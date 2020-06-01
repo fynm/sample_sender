@@ -45,8 +45,8 @@ public class sendTools {
         if(mySQLConnection == null){
             try{
                 Class.forName("com.mysql.jdbc.Driver");
-                String url = getProperty("mysqlServerURLString");
-                mySQLConnection = DriverManager.getConnection(url, getProperty("mysqlUserId"), getProperty("mysqlcreds"));
+                String url = "jdbc:mysql://localhost:3306/samplesenderdb";
+                mySQLConnection = DriverManager.getConnection(url, "root", "admin");
                 mySQLConnection.setAutoCommit(true);
             }catch(Exception e){
                 e.printStackTrace();;

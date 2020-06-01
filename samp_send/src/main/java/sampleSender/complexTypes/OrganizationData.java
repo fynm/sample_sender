@@ -6,6 +6,7 @@ public class OrganizationData {
     private String primeIdNumber = "";
     private String employerId = "";
     private String stgLevel = "";
+    private String stgLevelId = "";
     private String streetAddress = "";
     private String city = "";
     private String state = "";
@@ -91,6 +92,14 @@ public class OrganizationData {
 
     public void setTeleNumber(String teleNumber) {
         this.teleNumber = teleNumber;
+    }
+
+    public String getStgLevelId() {
+        return stgLevelId;
+    }
+
+    public void setStgLevelId(String stgLevelId) {
+        this.stgLevelId = stgLevelId;
     }
 
 }

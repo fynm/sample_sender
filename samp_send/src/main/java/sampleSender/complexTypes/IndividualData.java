@@ -5,6 +5,7 @@ public class IndividualData {
     private int itemNbr = 0;
     private String primeIdNumber = "";
     private String stglevel = "";
+    private String stgLevelId = "";
     private String firstName = "";
     private String lastName = "";
     private String middleInit = "";
@@ -109,6 +110,14 @@ public class IndividualData {
 
     public void setTeleNumber(String teleNumber) {
         this.teleNumber = teleNumber;
+    }
+
+    public String getStgLevelId() {
+        return stgLevelId;
+    }
+
+    public void setStgLevelId(String stgLevelId) {
+        this.stgLevelId = stgLevelId;
     }
 
 }

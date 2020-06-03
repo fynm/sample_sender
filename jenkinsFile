@@ -13,6 +13,16 @@ node{
         }
     }
 
+    stage('Run Application'){
+        try{
+            sh "DB=`docker inspect --format='{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' db`"
+            sh "docker run -e DB_URI=$DB fynm/sample_sender:${env.BUILD_NUMBER}"
+        }catch(error){
+        }finally{
+
+        }
+    }
+
 
 
 }

@@ -175,7 +175,7 @@ public class SendRules {
             String currentTin = "";
             while(rsA1.next()){
                 if(!rsA1.getString("tin").equals(currentTin)){
-                    String pTinSelect = "select * from send_ind i left join workq_data w on i.item = w.item where w.tin = ? and n.tStatus = 'A1' and sendStatus = 'Y' order by i.item";
+                    String pTinSelect = "select * from send_ind i left join workq_data w on i.item = w.item where w.tin = ? and w.tStatus = 'A1' and sendStatus = 'Y' order by i.item";
                     PreparedStatement pTS = c.prepareStatement(pTinSelect);
                     pTS.setString(1, rsA1.getString("tin"));
                     ResultSet rsTS = pTS.executeQuery();

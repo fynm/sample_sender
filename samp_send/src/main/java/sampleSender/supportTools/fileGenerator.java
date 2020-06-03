@@ -3,6 +3,9 @@ package sampleSender.supportTools;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.sql.PreparedStatement;
 
 import sampleSender.complexTypes.IndividualData;
 import sampleSender.complexTypes.OrganizationData;
@@ -131,6 +134,26 @@ public class fileGenerator {
     }
 
     public static void updateSent(int itemNbr, String table){
-        //TODO update to SS = S
+        Connection c = sendTools.getMySQLConnect();
+        String update = "";
+        switch(table){
+            case "ind":
+                update = "update send_ind set sendStatus = 'S' where item = ?";
+                break;
+            case "org":
+                update = "update send_org set sendStatus = 'S' where item = ?";
+                break;
+            default:
+                break;
+        }
+        try{
+            PreparedStatement p = c.prepareStatement(update);
+            p.setInt(1, itemNbr);
+            p.executeUpdate();
+            p.close();
+
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
     }
 }

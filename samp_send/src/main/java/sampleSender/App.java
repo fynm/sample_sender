@@ -29,8 +29,10 @@ public final class App {
         //databaseConnTest();
         databaseEntryCheck();
 
-        MockDataGenerator.runDataUpdate();
-        System.exit(0);
+        //MockDataGenerator.runDataUpdate();
+        //MockDataGenerator.dataEntry();
+        //MockDataGenerator.generateAff();
+        //System.exit(0);
 
         System.out.println("Initiating Sample Send ...");
 

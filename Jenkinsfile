@@ -16,8 +16,7 @@ node{
 
     stage('Run Application'){
         try{
-            bat "DB=`docker inspect --format='{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' db`"
-            bat "docker run -e DB_URI=$DB fynm/sample_sender:${env.BUILD_NUMBER}"
+            bat "docker run -e DB_URI=mysql://root:admin@127.0.0.1:3306/samplesenderdb fynm/sample_sender:${env.BUILD_NUMBER}"
         }catch(error){
         }finally{
 

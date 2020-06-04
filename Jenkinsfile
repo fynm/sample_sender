@@ -16,7 +16,7 @@ node{
 
     stage('Run Application'){
         try{
-            bat "docker run -it fynm/sample_sender:${env.BUILD_NUMBER}"
+            bat "docker run -i fynm/sample_sender:${env.BUILD_NUMBER}"
         }catch(error){
         }finally{
 

@@ -3,7 +3,7 @@ node{
     env.PATH = "${tool 'Maven3'}/bin:${env.PATH}"
     stage('PACKAGE'){
         dir('samp_send'){
-           sh 'mvn clean compile assembly:single' 
+           bat 'mvn clean compile assembly:single' 
         }
     }
     
@@ -16,7 +16,7 @@ node{
 
     stage('Run Application'){
         try{
-            sh "docker run -it fynm/sample_sender:${env.BUILD_NUMBER}"
+            bat "docker run -it fynm/sample_sender:${env.BUILD_NUMBER}"
         }catch(error){
         }finally{
 
